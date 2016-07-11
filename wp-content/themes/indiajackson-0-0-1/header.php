@@ -34,4 +34,4 @@
 			<?php get_template_part('sections/site-navigation'); ?>
 		</header>
 			
-			<main role="main" class="container<?php if(is_front_page()): echo ' front-page'; else: echo ' -fluid'; endif; ?>">
+			<main role="main" class="container<?php if(is_front_page()): echo ' front-page'; else: echo '-fluid'; endif; ?>">
