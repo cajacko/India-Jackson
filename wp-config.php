@@ -14,18 +14,21 @@
  * @package WordPress
  */
 
+$json = file_get_contents('config.json');
+$config = json_decode($json);
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'indiajackson');
+define('DB_NAME', $config->mysql->database);
 
 /** MySQL database username */
-define('DB_USER', 'indiajackson');
+define('DB_USER', $config->mysql->user);
 
 /** MySQL database password */
-define('DB_PASSWORD', '5O4mR#Awk0');
+define('DB_PASSWORD', $config->mysql->password);
 
 /** MySQL hostname */
-define('DB_HOST', '52.49.247.254');
+define('DB_HOST', $config->mysql->host);
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -41,14 +44,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'eG7)0m1L*UL8M0d9l$FMEDdo#t5rpLCF&pixH1jm)pNY#QdlyJY7!hq9o3aCE3CM');
-define('SECURE_AUTH_KEY',  ')xkxZz!CattU0&LDct&hgPYXU7n1Nft8^e*WW)WgU0txVNVnbEPo&qRqk*U2fWo1');
-define('LOGGED_IN_KEY',    'Sz8hrMrOuqaDkVQs@X9K%5omty(2V(lP)R9HXkM(wtQE@8X7@T$cUHcoL7Ap^4)T');
-define('NONCE_KEY',        '^Qej8dksm#kggJPL(s7xqS26&O&iApQPAmCLF7wPA43TZhdL0HZOgE8xc2N*#WUd');
-define('AUTH_SALT',        'dEuM#6F6EEZm8npypZG48oO3dxH4InWRi3$0H*IX3gDHQ^XIGL7nKgH&IP6wD1Uz');
-define('SECURE_AUTH_SALT', '%xggRqo0NqPa&kwHje#ytr)5e5ahCWc8IfK&CkJSAkq18lcAXOi3EML%sP@TrKxD');
-define('LOGGED_IN_SALT',   'oZ&xbb9jCB5Xg1!ZXmSW4nD*IoFJ8fjklhCMDNI5F%a^an8Y8^215t6$)&(nm&nz');
-define('NONCE_SALT',       '4@rRs$l0kQIzXb&f7vep8g#xR!pwiJEpTpqusvPSZ6Jd27cfBEmnF(Qi#(Zup0P$');
+define('AUTH_KEY',         $config->unique->auth->key);
+define('SECURE_AUTH_KEY',  $config->unique->secureAuth->key);
+define('LOGGED_IN_KEY',    $config->unique->loggedIn->key);
+define('NONCE_KEY',        $config->unique->nonce->key);
+define('AUTH_SALT',        $config->unique->auth->salt);
+define('SECURE_AUTH_SALT', $config->unique->secureAuth->salt);
+define('LOGGED_IN_SALT',   $config->unique->loggedIn->salt);
+define('NONCE_SALT',       $config->unique->nonce->salt);
 /**#@-*/
 
 /**
