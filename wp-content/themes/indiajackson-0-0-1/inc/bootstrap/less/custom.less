@@ -1,0 +1,172 @@
+/* -----------------------------
+GLOBAL STYLES
+----------------------------- */
+	.display-table {
+		display: table;
+	}
+	
+	.display-table-row {
+		display: table-row;
+	}
+	
+	.display-table-cell {
+		display: table-cell;
+	}
+	
+	.footer-to-bottom {
+		position: absolute;
+		bottom: 0;
+	}
+	
+	.container-fluid {
+		padding-right: @global-margin;
+		padding-left: @global-margin;
+	}
+	
+	.container {
+		padding-right: @global-margin;
+		padding-left: @global-margin;
+	}
+
+/* -----------------------------
+TEMPLATE STYLES
+----------------------------- */
+	/* -----------------------------
+	SETUP STYLES
+	----------------------------- */
+		html, body {
+			height: 100%;
+		}
+		
+		.navbar, h1, h2, h3, h4, h5, h6 {
+			text-transform: uppercase;
+			letter-spacing: 0.5px;	
+		}
+	/* -----------------------------
+	HEADER
+	----------------------------- */
+		.navbar {
+			margin-bottom: @global-margin;
+		}
+		
+		#navbar-brand {
+			margin-left: @global-margin;
+		}
+		
+		@media (min-width: @grid-float-breakpoint) {
+			#navbar-brand {
+				margin-left: -@global-margin;
+			}
+		}
+		
+		h1, #image-layout {
+			font-size: 20px;
+		}
+		
+	/* -----------------------------
+	FOOTER
+	----------------------------- */
+		#site-footer {
+			background-color: @navbar-default-bg;
+			margin-top: @global-margin;
+			width: 100%;
+			border: 1px solid @navbar-default-border;
+			
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				width: 2000px;
+				text-align: center;
+				font-size: 35px;
+				padding: 5px 0;
+			}
+		}
+
+/* -----------------------------
+PAGE STYLES
+----------------------------- */
+	/* -----------------------------
+	HOME PAGE
+	----------------------------- */
+		.home-page {
+			margin-left: @global-margin;
+			margin-right: @global-margin;
+		}
+		
+		.masonry {
+			article {
+				width: 25%;
+				padding: @global-margin;
+				opacity: 0;
+			}
+			
+			@media (max-width: 1500px) {
+				article {
+					width: 33.3333333%;
+				}	
+			}
+			
+			@media (max-width: 1000px) {
+				article {
+					width: 50%;
+				}	
+			}
+			
+			@media (max-width: 500px) {
+				article {
+					width: 100%;
+				}	
+			}
+		}
+		
+	/* -----------------------------
+	PROJECT PAGE
+	----------------------------- */
+		#title {
+			margin: @global-margin;
+			
+			h1 {
+				float: left;
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#image-layout {
+				float: right;
+			}
+		}
+		
+		.project-description {
+			margin-top: 0;
+			font-size: 18px;	
+		}
+		
+		.project-description-content {
+			p:last-child {
+				margin: 0;	
+			}	
+		}
+		
+		.project-description-content-single {
+			padding-top: @global-margin;
+			padding-bottom: @global-margin;
+		}
+		
+		#slideshow {
+			margin: @global-margin;
+			opacity: 0;
+			
+			img {
+				margin: 0 auto;
+				max-width:100%;
+				max-height:100%;
+			}
+			
+			.item {
+				height: 500px;
+			}
+		}
