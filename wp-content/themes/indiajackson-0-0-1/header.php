@@ -31,7 +31,7 @@
 
 	<body>
 		<header id="site-header">
-			<?php get_template_part('sections/site-navigation'); ?>
+			<?php get_template_part('sections/site-navigation'); ?>		
 		</header>
 			
-			<main role="main" class="container<?php if(is_front_page()): echo ' front-page'; else: echo '-fluid'; endif; ?>">
+			<main role="main" class="<?php if(is_front_page()): echo 'home-page'; else: echo 'container-fluid'; endif; ?>">

@@ -1,4 +1,5 @@
 (function($) {
+
     $(document).ready(documentReadyFunction);
     $(window).resize(windowResizeFunction);
 
@@ -35,7 +36,6 @@
     }
 
     function onPageLoadOrResize () {
-    	positionHomeImage();
 	    /* -----------------------------
 		SIZE MASONRY IMAGES
 		----------------------------- */
@@ -123,18 +123,5 @@
 					$(target).attr('src', path);
 		    	});
 		    }
-
-
-		function positionHomeImage() {
-			if ($('.front-page').length && $('main img').length == 1) {
-				$('main img').load(function() {
-					var container = $('main');
-					var windowHeight = $(window).height();
-					var availableHeight = windowHeight - ($('#site-header').outerHeight() + $('#site-footer').outerHeight());
-					var margintop = (availableHeight - $(container).outerHeight()) / 2;
-					$(container).css('margin-top', margintop);
-				});
-			}
-		}
 
 })(jQuery);
