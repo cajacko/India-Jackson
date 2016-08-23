@@ -14,7 +14,9 @@
  * @package WordPress
  */
 
-$json = file_get_contents('config.json', true);
+set_include_path(__DIR__);
+
+$json = file_get_contents('../config.json', true);
 $config = json_decode($json);
 
 // ** MySQL settings - You can get this info from your web host ** //
