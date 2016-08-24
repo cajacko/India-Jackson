@@ -14,7 +14,7 @@
  * @package WordPress
  */
 
-set_include_path(__DIR__ . '../');
+set_include_path(ABSPATH . '../');
 
 $json = file_get_contents('config.json', true);
 $config = json_decode($json);
