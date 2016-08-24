@@ -108,6 +108,14 @@ REMOVE REDUNDANT FEATURES
 	// 	add_menu_page( 'Your Profile', 'Your Profile', 'manage_options', 'profile.php' );
 	// }
 
+
+function indiajackson_login_form_style() {
+    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/style-login.css' );
+}
+
+add_action( 'login_enqueue_scripts', 'indiajackson_login_form_style' );
+
+
 /* -----------------------------
 ENQUE STYLES AND SCRIPTS
 ----------------------------- */
