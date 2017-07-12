@@ -1,12 +1,18 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
+import style from 'components/ProjectGridItem/ProjectGridItem.style';
 
 const ProjectGridItem = ({ fields }) => (
-  <li>
-    <Item asset element={Image} itemId={fields.featureImage['en-GB'].sys.id} />
-    <h2>{fields.title['en-GB']}</h2>
+  <li style={style.container}>
+    <Link to={`/${fields.url['en-GB']}`}>
+      <div style={style.image}>
+        <Item asset element={Image} itemId={fields.featureImage['en-GB'].sys.id} />
+      </div>
+      <h2 style={style.title}>{fields.title['en-GB']}</h2>
+    </Link>
   </li>
 );
 

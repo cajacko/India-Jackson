@@ -1,5 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import Icon from 'components/Icon/Icon';
@@ -9,9 +10,9 @@ import style from 'components/SiteNav/SiteNav.style';
 const SiteNav = ({ fields }) => (
   <nav style={style.container}>
     <div style={style.wrapper}>
-      <div style={style.logo}>
-        <Item asset element={Image} itemId={fields.logo['en-GB'].sys.id} height="70" width="200" />
-      </div>
+      <Link style={style.logo} to="/">
+        <Item asset element={Image} itemId={fields.logo['en-GB'].sys.id} height={70} width={200} />
+      </Link>
       <ul style={style.iconLinks}>
         {
           fields.iconLinks['en-GB'].map(({ sys }) => (

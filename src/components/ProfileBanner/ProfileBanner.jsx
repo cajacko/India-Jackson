@@ -8,7 +8,7 @@ const ProfileBanner = ({ fields }) => (
   <section style={style.container}>
     <div style={style.wrapper}>
       <div style={style.image}>
-        <Item asset element={Image} itemId={fields.image['en-GB'].sys.id} width="200" height="200" />
+        <Item asset element={Image} itemId={fields.image['en-GB'].sys.id} width={200} height={200} />
       </div>
       <div style={style.textWrapper}>
         <p style={style.paragraph}>{fields.description['en-GB']}</p>
