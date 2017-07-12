@@ -2,29 +2,53 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
+import style from 'components/Project/Project.style';
 
-const Project = ({ fields }) => (
-  <section>
-    <header>
-      <h1>{fields.title['en-GB']}</h1>
-      { fields.description && <p>{fields.description['en-GB']}</p> }
-      { fields.backgroundImage && <Item asset element={Image} itemId={fields.backgroundImage['en-GB'].sys.id} /> }
-    </header>
-    <ul>
-      {
-        fields.images['en-GB'].map(({ sys }) => (
-          <li key={sys.id}>
-            <Item
-              element={Image}
-              itemId={sys.id}
-              asset
-            />
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-);
+const Project = ({ fields }) => {
+  let i = 0;
+
+  return (
+    <section style={style.container}>
+      <header style={style.header}>
+        <div style={style.headerWrap}>
+          <h1 style={style.heading}>{fields.title['en-GB']}</h1>
+          { fields.description && <p style={style.description}>{fields.description['en-GB']}</p> }
+        </div>
+        { fields.backgroundImage &&
+          <div style={style.backgroundImage}>
+            <div style={style.backgroundOpacity} />
+            <Item asset element={Image} itemId={fields.backgroundImage['en-GB'].sys.id} />
+          </div>
+        }
+      </header>
+      <ul style={style.images}>
+        {
+          fields.images['en-GB'].map(({ sys }) => {
+            i += 1;
+
+            let styles = style.image;
+
+            if (i % 2) {
+              styles = { ...styles, ...style.imageAlt };
+            }
+
+            return (
+              <li key={`${i}-${sys.id}`} style={styles}>
+                <div style={style.imageWrapper}>
+                  <Item
+                    element={Image}
+                    itemId={sys.id}
+                    asset
+                  />
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  );
+};
 
 // SiteHeader.propTypes = {
 //   fields: PropTypes.shape({
