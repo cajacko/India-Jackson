@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "login": "firebase login",
+    "logout": "firebase logout",
     "init": "firebase init",
-    "deploy": "firebase deploy",
+    "deploy": "npm run build && npm run pages && firebase deploy",
     "serve": "firebase serve",
     "dev:server": "babel-node ./devServer/index.js",
     "dev:webpack": "webpack-dev-server",

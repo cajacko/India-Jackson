@@ -5,14 +5,22 @@ import Image from 'components/Image/Image';
 import style from 'components/Project/Project.style';
 
 const Project = ({ fields }) => {
-  let i = 0;
+  let i = 1;
+
+  let headingStyles = style.heading;
+  let descriptionStyles = style.description;
+
+  if (!fields.description) {
+    headingStyles = { ...headingStyles, ...style.headingAlt };
+    descriptionStyles = { ...descriptionStyles, ...style.descriptionAlt };
+  }
 
   return (
     <section style={style.container}>
       <header style={style.header}>
         <div style={style.headerWrap}>
-          <h1 style={style.heading}>{fields.title['en-GB']}</h1>
-          { fields.description && <p style={style.description}>{fields.description['en-GB']}</p> }
+          <h1 style={headingStyles}>{fields.title['en-GB']}</h1>
+          { fields.description && <p style={descriptionStyles}>{fields.description['en-GB']}</p> }
         </div>
         { fields.backgroundImage &&
           <div style={style.backgroundImage}>

@@ -1,4 +1,4 @@
-import { WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
+import { BLACK, WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
 
 export default {
   container: {
@@ -16,6 +16,7 @@ export default {
   header: {
     overflow: 'hidden',
     position: 'relative',
+    backgroundColor: WHITE,
   },
 
   headerWrap: {
@@ -52,6 +53,14 @@ export default {
     color: WHITE,
     margin: 0,
     fontSize: 40,
+  },
+
+  headingAlt: {
+    color: BLACK,
+  },
+
+  descriptionAlt: {
+    color: BLACK,
   },
 
   description: {

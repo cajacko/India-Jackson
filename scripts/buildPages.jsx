@@ -63,16 +63,6 @@ function getPages() {
       htmlData: {},
       reactData: {},
     },
-    {
-      url: '/meditation',
-      htmlData: {},
-      reactData: {},
-    },
-    {
-      url: '/404',
-      htmlData: {},
-      reactData: {},
-    },
   ];
 }
 
