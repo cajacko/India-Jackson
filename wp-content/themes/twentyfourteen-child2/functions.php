@@ -1,6 +1,0 @@
-<?php //Opening PHP tag
-
-
-
-
-?> 
