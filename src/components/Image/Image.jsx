@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import style from 'components/Image/Image.style';
 
 const Image = ({ fields, className, width, height, fill }) => {
   let imageHeight = fields.file['en-GB'].details.image.height;
@@ -30,6 +31,7 @@ const Image = ({ fields, className, width, height, fill }) => {
 
   return (
     <img
+      style={style.image}
       width={imageWidth}
       height={imageHeight}
       src={url}

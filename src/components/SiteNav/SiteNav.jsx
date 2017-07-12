@@ -4,25 +4,31 @@ import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import Icon from 'components/Icon/Icon';
 import IconLink from 'components/IconLink/IconLink';
+import style from 'components/SiteNav/SiteNav.style';
 
 const SiteNav = ({ fields }) => (
-  <nav>
-    <Item asset element={Image} itemId={fields.logo['en-GB'].sys.id} />
-    <ul>
-      {
-        fields.iconLinks['en-GB'].map(({ sys }) => (
-          <Item
-            key={sys.id}
-            element={IconLink}
-            itemId={sys.id}
-          />
-        ))
-      }
-    </ul>
+  <nav style={style.container}>
+    <div style={style.wrapper}>
+      <div style={style.logo}>
+        <Item asset element={Image} itemId={fields.logo['en-GB'].sys.id} height="70" width="200" />
+      </div>
+      <ul style={style.iconLinks}>
+        {
+          fields.iconLinks['en-GB'].map(({ sys }) => (
+            <li style={style.iconLink} key={sys.id}>
+              <Item
+                element={IconLink}
+                itemId={sys.id}
+              />
+            </li>
+          ))
+        }
+      </ul>
 
-    <button>
-      <Item element={Icon} itemId={fields.menuIcon['en-GB'].sys.id} />
-    </button>
+      <button style={style.menuButton}>
+        <Item element={Icon} itemId={fields.menuIcon['en-GB'].sys.id} />
+      </button>
+    </div>
   </nav>
 );
 

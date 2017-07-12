@@ -24,10 +24,6 @@ const html = template({
     vendor: `${webpackUrl}vendor.js`,
     manifest: `${webpackUrl}manifest.js`,
   },
-  css: {
-    lib: `${webpackUrl}assets/styles/lib.css`,
-    style: `${webpackUrl}assets/styles/style.min.css`,
-  },
   htmlData: {},
 });
 
