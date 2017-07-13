@@ -1,4 +1,5 @@
 import { WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
+import { TEXT } from 'constants/text';
 
 export default {
   container: {
@@ -22,6 +23,7 @@ export default {
   },
 
   paragraph: {
+    ...TEXT,
     fontSize: 20,
     margin: 0,
   },
@@ -35,5 +37,10 @@ export default {
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius: 5,
+    ...TEXT,
+    ':hover': {
+      textDecoration: 'underline',
+      background: GREY_LIGHT_HIGHLIGHT,
+    },
   },
 };
