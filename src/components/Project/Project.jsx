@@ -1,62 +1,83 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import style from 'components/Project/Project.style';
+import WindowResize from 'components/WindowResize/WindowResize';
 
-const Project = ({ description, title, backgroundImage, images }) => {
-  let i = 1;
-
-  let headingStyles = style.heading;
-  let descriptionStyles = style.description;
-
-  if (!description) {
-    headingStyles = { ...headingStyles, ...style.headingAlt };
-    descriptionStyles = { ...descriptionStyles, ...style.descriptionAlt };
+class Project extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { width: window.innerWidth };
+    this.onWindowResize = this.onWindowResize.bind(this);
   }
 
-  return (
-    <section style={style.container}>
-      <header style={style.header}>
-        <div style={style.headerWrap}>
-          <h1 style={headingStyles}>{title}</h1>
-          { description && <p style={descriptionStyles}>{description}</p> }
-        </div>
-        { backgroundImage &&
-          <div style={style.backgroundImage}>
-            <div style={style.backgroundOpacity} />
-            <Item asset element={Image} itemId={backgroundImage} />
-          </div>
-        }
-      </header>
-      <ul style={style.images}>
-        {
-          images.map((id) => {
-            i += 1;
+  onWindowResize(width) {
+    this.setState({ width });
+  }
 
-            let styles = style.image;
+  render() {
+    let i = 1;
 
-            if (i % 2) {
-              styles = { ...styles, ...style.imageAlt };
+    let headingStyles = style.heading;
+    let descriptionStyles = style.description;
+
+    if (!this.props.backgroundImage) {
+      headingStyles = { ...headingStyles, ...style.headingAlt };
+      descriptionStyles = { ...descriptionStyles, ...style.descriptionAlt };
+    }
+
+    return (
+      <WindowResize onWindowResize={this.onWindowResize}>
+        <section style={style.container}>
+          <header style={style.header}>
+            <div style={style.headerWrap}>
+              <h1 style={headingStyles}>{this.props.title}</h1>
+              { this.props.description &&
+                <p style={descriptionStyles}>{this.props.description}</p>
+              }
+            </div>
+            { this.props.backgroundImage &&
+              <div style={style.backgroundImage}>
+                <div style={style.backgroundOpacity} />
+                <Item
+                  element={Image}
+                  itemId={this.props.backgroundImage}
+                  stretchWidth={this.state.width}
+                />
+              </div>
             }
+          </header>
+          <ul style={style.images}>
+            {
+              this.props.images.map((id) => {
+                i += 1;
 
-            return (
-              <li key={`${i}-${id}`} style={styles}>
-                <div style={style.imageWrapper}>
-                  <Item
-                    element={Image}
-                    itemId={id}
-                    width={1000}
-                  />
-                </div>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
-  );
-};
+                let styles = style.image;
+
+                if (i % 2) {
+                  styles = { ...styles, ...style.imageAlt };
+                }
+
+                return (
+                  <li key={`${i}-${id}`} style={styles}>
+                    <div style={style.imageWrapper}>
+                      <Item
+                        element={Image}
+                        itemId={id}
+                        width={1000}
+                      />
+                    </div>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </section>
+      </WindowResize>
+    );
+  }
+}
 
 Project.propTypes = {
   description: PropTypes.string,

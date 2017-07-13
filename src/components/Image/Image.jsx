@@ -2,7 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'components/Image/Image.style';
 
-const Image = ({ file, title, className, width, height, fill }) => {
+const Image = ({
+  file,
+  title,
+  className,
+  width,
+  height,
+  fill,
+  stretchWidth,
+}) => {
   let imageHeight = file.details.image.height;
   let imageWidth = file.details.image.width;
 
@@ -39,9 +47,15 @@ const Image = ({ file, title, className, width, height, fill }) => {
     url = `${file.url}?${jpg}`;
   }
 
+  let imageStyles = style.image;
+
+  if (stretchWidth) {
+    imageStyles = { ...imageStyles, width: stretchWidth };
+  }
+
   return (
     <img
-      style={style.image}
+      style={imageStyles}
       width={imageWidth}
       height={imageHeight}
       src={url}
@@ -66,6 +80,7 @@ Image.propTypes = {
   height: PropTypes.number,
   fill: PropTypes.bool,
   title: PropTypes.string,
+  stretchWidth: PropTypes.number,
 };
 
 Image.defaultProps = {
@@ -74,6 +89,7 @@ Image.defaultProps = {
   height: null,
   fill: true,
   title: 'Content editor has not supplied alt text',
+  stretchWidth: null,
 };
 
 export default Image;
