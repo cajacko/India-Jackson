@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Radium from 'radium';
 import { Link } from 'react-router-dom';
 import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
@@ -12,13 +13,20 @@ class SiteNav extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { showSubMenu: false };
+    this.state = { showSubMenu: false, hover: false };
 
     this.onClick = this.onClick.bind(this);
+    this.hover = this.hover.bind(this);
   }
 
   onClick() {
     this.setState({ showSubMenu: !this.state.showSubMenu });
+  }
+
+  hover(hover) {
+    if (hover !== this.state.hover) {
+      this.setState({ hover });
+    }
   }
 
   render() {
@@ -30,6 +38,14 @@ class SiteNav extends Component {
       menuIcon = this.props.menuCloseIcon;
       iconLinksStyle = { ...iconLinksStyle, ...style.hidden };
       logoStyle = { ...logoStyle, ...style.hidden };
+    }
+
+    let buttonStyle = style.menuButton;
+    let buttonColour = style.buttonColour;
+
+    if (this.state.hover) {
+      buttonStyle = { ...buttonStyle, ...style.menuButtonHover };
+      buttonColour = style.buttonColourHover;
     }
 
     return (
@@ -72,8 +88,13 @@ class SiteNav extends Component {
             }
           </div>
 
-          <button style={style.menuButton} onClick={this.onClick}>
-            <Item element={Icon} itemId={menuIcon} />
+          <button
+            style={buttonStyle}
+            onClick={this.onClick}
+            onMouseOver={() => this.hover(true)}
+            onMouseOut={() => this.hover(false)}
+          >
+            <Item element={Icon} itemId={menuIcon} colour={buttonColour} />
           </button>
         </div>
       </nav>
@@ -89,4 +110,4 @@ SiteNav.propTypes = {
   links: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default SiteNav;
+export default Radium(SiteNav);

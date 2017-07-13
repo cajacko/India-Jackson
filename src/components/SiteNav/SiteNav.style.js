@@ -1,4 +1,4 @@
-import { GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
+import { GREY_LIGHT, GREY_LIGHT_HIGHLIGHT, BLACK, TURQOISE } from 'constants/colours';
 
 const iconSize = 30;
 
@@ -45,8 +45,7 @@ export default {
     flexDirection: 'row',
     listStyle: 'none',
     margin: 0,
-    padding: 0,
-    paddingRight: 30,
+    padding: '0 30px 0 0',
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'absolute',
@@ -70,7 +69,14 @@ export default {
     border: 0,
     padding: 0,
     margin: 0,
+    cursor: 'pointer',
+    ':focus': {
+      outline: 'none',
+    },
   },
+
+  buttonColour: BLACK,
+  buttonColourHover: TURQOISE,
 
   hidden: {
     opacity: 0,

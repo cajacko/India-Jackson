@@ -1,30 +1,47 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Item from 'containers/Item/Item';
 import Icon from 'components/Icon/Icon';
+import style from 'components/IconLink/IconLink.style';
 
-const IconLink = ({ url, icon }) => (
-  <a href={url}>
-    <Item element={Icon} itemId={icon} />
-  </a>
-);
+class IconLink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hover: false };
+    this.hover = this.hover.bind(this);
+  }
 
-// SiteHeader.propTypes = {
-//   fields: PropTypes.shape({
-//     sitetitle: PropTypes.shape({
-//       'en-GB': PropTypes.string,
-//     }),
-//     description: PropTypes.shape({
-//       'en-GB': PropTypes.string,
-//     }),
-//     image: PropTypes.shape({
-//       'en-GB': PropTypes.shape({
-//         sys: PropTypes.shape({
-//           id: PropTypes.string,
-//         }),
-//       }),
-//     }),
-//   }).isRequired,
-// };
+  hover(hover) {
+    if (hover !== this.state.hover) {
+      this.setState({ hover });
+    }
+  }
+
+  render() {
+    let iconLinkStyle = style.iconLink;
+    let colour = style.iconLinkColour;
+
+    if (this.state.hover) {
+      iconLinkStyle = { ...iconLinkStyle, ...style.iconLinkHover };
+      colour = style.iconLinkColourHover;
+    }
+
+    return (
+      <a
+        href={this.props.url}
+        onMouseOver={() => this.hover(true)}
+        onMouseOut={() => this.hover(false)}
+        style={iconLinkStyle}
+      >
+        <Item element={Icon} itemId={this.props.icon} colour={colour} />
+      </a>
+    );
+  }
+}
+
+IconLink.propTypes = {
+  url: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+};
 
 export default IconLink;

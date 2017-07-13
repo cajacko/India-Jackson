@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Radium from 'radium';
 import PropTypes from 'prop-types';
+import Link from 'components/Link/Link';
+import style from 'components/SiteNavTextLink/SiteNavTextLink.style';
 
 const SiteNavTextLink = ({ url, title }) => (
-  <Link to={`/${url}`}>
+  <Link to={`/${url}`} style={style.link}>
     {title}
   </Link>
 );
@@ -13,4 +15,4 @@ SiteNavTextLink.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default SiteNavTextLink;
+export default Radium(SiteNavTextLink);
