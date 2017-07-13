@@ -5,15 +5,8 @@ import PropTypes from 'prop-types';
 import Routes from 'containers/Routes/Routes';
 import configureStore from 'store/configureStore';
 
-const App = ({ state }) => {
-  let preloadedState = state;
-
-  if (typeof window !== 'undefined' && window.REDUX_PRELOADED_STATE) {
-    preloadedState = window.REDUX_PRELOADED_STATE;
-    delete window.REDUX_PRELOADED_STATE;
-  }
-
-  const store = configureStore(preloadedState);
+const App = () => {
+  const store = configureStore({});
 
   return (
     <Provider store={store}>

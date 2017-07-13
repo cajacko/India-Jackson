@@ -1,13 +1,20 @@
-/* @flow */
-
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import App from 'containers/App/App';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Routes from 'containers/Routes/Routes';
+import configureStore from 'store/configureStore';
+import ScrollToTop from 'containers/ScrollToTop/ScrollToTop';
+
+const store = configureStore({});
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <ScrollToTop>
+        <Route path="*" component={Routes} />
+      </ScrollToTop>
+    </Router>
+  </Provider>,
   document.querySelector('#app'),
 );

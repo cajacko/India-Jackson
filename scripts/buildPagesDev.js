@@ -20,8 +20,8 @@ function renderPage(location, htmlData, reactData) {
   const originalHtml = template({
     manifest: manifestContent,
     js: {
-      main: `/assets/scripts/${manifest['main.js']}`,
-      vendor: `/assets/scripts/${manifest['vendor.js']}`,
+      main: '/assets/scripts/main.js',
+      vendor: '/assets/scripts/vendor.js',
     },
     ...htmlData,
   });
