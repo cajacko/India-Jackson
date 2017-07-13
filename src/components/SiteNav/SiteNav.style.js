@@ -10,6 +10,14 @@ export default {
     borderBottomColor: GREY_LIGHT_HIGHLIGHT,
   },
 
+  hoverFix: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+
   wrapper: {
     maxWidth: 800,
     margin: '0 auto',
@@ -77,6 +85,7 @@ export default {
     padding: 0,
     margin: 0,
     cursor: 'pointer',
+    position: 'relative',
     ':focus': {
       outline: 'none',
     },

@@ -33,6 +33,7 @@ class IconLink extends Component {
         onMouseOut={() => this.hover(false)}
         style={iconLinkStyle}
       >
+        <div style={style.hoverFix} />
         <Item element={Icon} itemId={this.props.icon} colour={colour} />
       </a>
     );

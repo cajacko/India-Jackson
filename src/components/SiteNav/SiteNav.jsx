@@ -94,6 +94,7 @@ class SiteNav extends Component {
               onMouseOver={() => this.hover(true)}
               onMouseOut={() => this.hover(false)}
             >
+              <div style={style.hoverFix} />
               <Item element={Icon} itemId={menuIcon} colour={buttonColour} />
             </button>
           </div>
