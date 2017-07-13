@@ -2,17 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Item from 'containers/Item/Item';
 import FourOhFourDefault from 'components/FourOhFourDefault/FourOhFourDefault';
-import FullScreenLoading from 'components/FullScreenLoading/FullScreenLoading';
+import removeLoading from 'helpers/removeLoading';
+
+let mounted = false;
 
 const Template = ({ noItem, components, loading, templateDataItem }) => {
   if (noItem) {
     if (loading) {
-      return <FullScreenLoading />;
+      return null;
     }
 
     // eslint-disable-next-line
     console.warn('Hardcoded 404, should never happen with server rendering');
     return <FourOhFourDefault />;
+  }
+
+  if (mounted === false) {
+    mounted = true;
+    removeLoading();
   }
 
   if (!components) {
