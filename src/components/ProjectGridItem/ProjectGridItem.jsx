@@ -5,13 +5,13 @@ import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import style from 'components/ProjectGridItem/ProjectGridItem.style';
 
-const ProjectGridItem = ({ fields }) => (
+const ProjectGridItem = ({ url, featureImage, title }) => (
   <li style={style.container}>
-    <Link to={`/${fields.url['en-GB']}`}>
+    <Link to={`/${url}`}>
       <div style={style.image}>
-        <Item asset element={Image} itemId={fields.featureImage['en-GB'].sys.id} />
+        <Item asset element={Image} itemId={featureImage} />
       </div>
-      <h2 style={style.title}>{fields.title['en-GB']}</h2>
+      <h2 style={style.title}>{title}</h2>
     </Link>
   </li>
 );

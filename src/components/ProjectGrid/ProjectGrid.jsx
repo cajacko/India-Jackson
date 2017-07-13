@@ -4,15 +4,15 @@ import Item from 'containers/Item/Item';
 import ProjectGridItem from 'components/ProjectGridItem/ProjectGridItem';
 import style from 'components/ProjectGrid/ProjectGrid.style';
 
-const ProjectGrid = ({ fields }) => (
+const ProjectGrid = ({ projects }) => (
   <section style={style.container}>
     <ul style={style.wrapper}>
       {
-        fields.projects['en-GB'].map(({ sys }) => (
+        projects.map((id) => (
           <Item
-            key={sys.id}
+            key={id}
             element={ProjectGridItem}
-            itemId={sys.id}
+            itemId={id}
           />
         ))
       }

@@ -4,15 +4,15 @@ import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import style from 'components/ProfileBanner/ProfileBanner.style';
 
-const ProfileBanner = ({ fields }) => (
+const ProfileBanner = ({ image, description, buttonLink, buttonText}) => (
   <section style={style.container}>
     <div style={style.wrapper}>
       <div style={style.image}>
-        <Item asset element={Image} itemId={fields.image['en-GB'].sys.id} width={200} height={200} />
+        <Item asset element={Image} itemId={image} width={200} height={200} />
       </div>
       <div style={style.textWrapper}>
-        <p style={style.paragraph}>{fields.description['en-GB']}</p>
-        <a style={style.link} href={fields.buttonLink['en-GB']}>{fields.buttonText['en-GB']}</a>
+        <p style={style.paragraph}>{description}</p>
+        <a style={style.link} href={buttonLink}>{buttonText}</a>
       </div>
     </div>
   </section>

@@ -3,9 +3,9 @@ import React from 'react';
 import Item from 'containers/Item/Item';
 import Icon from 'components/Icon/Icon';
 
-const IconLink = ({ fields }) => (
-  <a href={fields.url['en-GB']}>
-    <Item element={Icon} itemId={fields.icon['en-GB'].sys.id} />
+const IconLink = ({ url, icon }) => (
+  <a href={url}>
+    <Item element={Icon} itemId={icon} />
   </a>
 );
 

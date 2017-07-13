@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'components/Image/Image.style';
 
-const Image = ({ fields, className, width, height, fill }) => {
-  let imageHeight = fields.file['en-GB'].details.image.height;
-  let imageWidth = fields.file['en-GB'].details.image.width;
+const Image = ({ file, title, className, width, height, fill }) => {
+  let imageHeight = file.details.image.height;
+  let imageWidth = file.details.image.width;
 
   let fillText = '';
 
@@ -27,7 +27,7 @@ const Image = ({ fields, className, width, height, fill }) => {
     fillText = '&fit=fill';
   }
 
-  const url = `${fields.file['en-GB'].url}?w=${imageWidth}&h=${imageHeight}${fillText}&fm=jpg&fl=progressive`;
+  const url = `${file.url}?w=${imageWidth}&h=${imageHeight}${fillText}&fm=jpg&fl=progressive`;
 
   return (
     <img
@@ -36,33 +36,33 @@ const Image = ({ fields, className, width, height, fill }) => {
       height={imageHeight}
       src={url}
       className={className}
-      alt={fields.title['en-GB']}
+      alt={title}
     />
   );
 };
 
-Image.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
-  fill: PropTypes.bool,
-  className: PropTypes.string,
-  fields: PropTypes.shape({
-    title: PropTypes.shape({
-      'en-GB': PropTypes.string,
-    }),
-    file: PropTypes.shape({
-      'en-GB': PropTypes.shape({
-        url: PropTypes.string,
-        details: PropTypes.shape({
-          image: PropTypes.shape({
-            width: PropTypes.number,
-            height: PropTypes.number,
-          }),
-        }),
-      }),
-    }),
-  }).isRequired,
-};
+// Image.propTypes = {
+//   width: PropTypes.number,
+//   height: PropTypes.number,
+//   fill: PropTypes.bool,
+//   className: PropTypes.string,
+//   fields: PropTypes.shape({
+//     title: PropTypes.shape({
+//       'en-GB': PropTypes.string,
+//     }),
+//     file: PropTypes.shape({
+//       'en-GB': PropTypes.shape({
+//         url: PropTypes.string,
+//         details: PropTypes.shape({
+//           image: PropTypes.shape({
+//             width: PropTypes.number,
+//             height: PropTypes.number,
+//           }),
+//         }),
+//       }),
+//     }),
+//   }).isRequired,
+// };
 
 Image.defaultProps = {
   className: null,

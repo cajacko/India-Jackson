@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Item from 'containers/Item/Item';
-import getComponents from 'helpers/getComponents';
 import FourOhFourDefault from 'components/FourOhFourDefault/FourOhFourDefault';
 import FullScreenLoading from 'components/FullScreenLoading/FullScreenLoading';
 
-const Template = ({ noItem, fields, loading, templateDataItem }) => {
+const Template = ({ noItem, components, loading, templateDataItem }) => {
   if (noItem) {
     if (loading) {
       return <FullScreenLoading />;
@@ -16,8 +15,6 @@ const Template = ({ noItem, fields, loading, templateDataItem }) => {
     return <FourOhFourDefault />;
   }
 
-  const components = getComponents(fields);
-
   if (!components) {
     return null;
   }
@@ -27,27 +24,15 @@ const Template = ({ noItem, fields, loading, templateDataItem }) => {
   return (
     <div>
       {
-        components.map((component) => {
+        components.map((id) => {
           i += 0;
 
-          if (!component.sys) {
-            // eslint-disable-next-line
-            console.warn('Unexpected response from api');
-            return null;
-          }
-
-          if (!component.sys.id) {
-            // eslint-disable-next-line
-            console.warn('Unexpected response from api');
-            return null;
-          }
-
-          const key = `${i}-${component.sys.id}`;
+          const key = `${i}-${id}`;
 
           return (
             <Item
               key={key}
-              itemId={component.sys.id}
+              itemId={id}
               templateDataItem={templateDataItem}
             />
           );
@@ -61,15 +46,7 @@ Template.propTypes = {
   noItem: PropTypes.bool,
   loading: PropTypes.bool,
   templateDataItem: PropTypes.string,
-  fields: PropTypes.shape({
-    components: PropTypes.shape({
-      'en-GB': PropTypes.arrayOf(PropTypes.shape({
-        sys: PropTypes.shape({
-          id: PropTypes.string,
-        }),
-      })),
-    }),
-  }),
+  components: PropTypes.arrayOf(PropTypes.string),
 };
 
 Template.defaultProps = {
@@ -77,6 +54,7 @@ Template.defaultProps = {
   fields: null,
   loading: false,
   templateDataItem: null,
+  components: null,
 };
 
 
