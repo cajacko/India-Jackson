@@ -13,6 +13,7 @@ const Image = ({ file, title, className, width, height, fill }) => {
   }
 
   const ratio = imageHeight / imageWidth;
+  let changeSize = true;
 
   if (height && width) {
     imageHeight = height;
@@ -24,11 +25,19 @@ const Image = ({ file, title, className, width, height, fill }) => {
   } else if (!height && width) {
     imageWidth = width;
     imageHeight = Math.floor(ratio * imageWidth);
-    fillText = '&fit=fill';
+    fillText = 'fit=fill';
+  } else {
+    changeSize = false;
   }
 
-  const jpg = '&fm=jpg&fl=progressive';
-  const url = `${file.url}?w=${imageWidth}&h=${imageHeight}${fillText}${jpg}`;
+  const jpg = 'fm=jpg&fl=progressive';
+  let url;
+
+  if (changeSize) {
+    url = `${file.url}?w=${imageWidth}&h=${imageHeight}&${fillText}&${jpg}`;
+  } else {
+    url = `${file.url}?${jpg}`;
+  }
 
   return (
     <img

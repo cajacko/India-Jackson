@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import style from 'components/Project/Project.style';
@@ -46,7 +46,7 @@ const Project = ({ description, title, backgroundImage, images }) => {
                   <Item
                     element={Image}
                     itemId={id}
-                    asset
+                    width={1000}
                   />
                 </div>
               </li>
@@ -58,22 +58,16 @@ const Project = ({ description, title, backgroundImage, images }) => {
   );
 };
 
-// SiteHeader.propTypes = {
-//   fields: PropTypes.shape({
-//     sitetitle: PropTypes.shape({
-//       'en-GB': PropTypes.string,
-//     }),
-//     description: PropTypes.shape({
-//       'en-GB': PropTypes.string,
-//     }),
-//     image: PropTypes.shape({
-//       'en-GB': PropTypes.shape({
-//         sys: PropTypes.shape({
-//           id: PropTypes.string,
-//         }),
-//       }),
-//     }),
-//   }).isRequired,
-// };
+Project.propTypes = {
+  description: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+Project.defaultProps = {
+  description: null,
+  backgroundImage: null,
+};
 
 export default Project;
