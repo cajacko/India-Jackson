@@ -12,8 +12,11 @@ const Template = ({ noItem, components, loading, templateDataItem }) => {
       return null;
     }
 
-    // eslint-disable-next-line
-    console.warn('Hardcoded 404, should never happen with server rendering');
+    if (mounted === false) {
+      mounted = true;
+      removeLoading();
+    }
+
     return <FourOhFourDefault />;
   }
 
