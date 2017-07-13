@@ -1,8 +1,17 @@
-import { LINK } from 'constants/text';
+import { LINK, TEXT } from 'constants/text';
+import { TURQOISE } from 'constants/colours';
+
+const fontSize = 16;
 
 export default {
   link: {
     ...LINK,
-    fontSize: 16,
+    fontSize,
+  },
+
+  active: {
+    ...TEXT,
+    fontSize,
+    color: TURQOISE,
   },
 };

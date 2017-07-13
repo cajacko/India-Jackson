@@ -6,7 +6,7 @@ import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import Icon from 'components/Icon/Icon';
 import IconLink from 'components/IconLink/IconLink';
-import SiteNavTextLink from 'components/SiteNavTextLink/SiteNavTextLink';
+import SiteNavTextLink from 'containers/SiteNavTextLink/SiteNavTextLink';
 import style from 'components/SiteNav/SiteNav.style';
 
 class SiteNav extends Component {
