@@ -1,7 +1,7 @@
 {
-  "name": "charlie-jackson-website",
+  "name": "india-jackson-website",
   "version": "1.0.0",
-  "description": "Website for Charlie Jackson",
+  "description": "Website for India Jackson",
   "main": "index.js",
   "scripts": {
     "test": "eslint src",
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cajacko/charlie-jackson-website.git"
+    "url": "git+https://github.com/cajacko/india-jackson-website.git"
   },
   "author": "Charlie Jackson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cajacko/charlie-jackson-website/issues"
+    "url": "https://github.com/cajacko/india-jackson-website/issues"
   },
-  "homepage": "https://github.com/cajacko/charlie-jackson-website#readme",
+  "homepage": "https://github.com/cajacko/india-jackson-website#readme",
   "devDependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
