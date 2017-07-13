@@ -4,13 +4,13 @@ import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import style from 'components/Project/Project.style';
 
-const Project = ({ fields }) => {
+const Project = ({ description, title, backgroundImage, images }) => {
   let i = 1;
 
   let headingStyles = style.heading;
   let descriptionStyles = style.description;
 
-  if (!fields.description) {
+  if (!description) {
     headingStyles = { ...headingStyles, ...style.headingAlt };
     descriptionStyles = { ...descriptionStyles, ...style.descriptionAlt };
   }
@@ -19,19 +19,19 @@ const Project = ({ fields }) => {
     <section style={style.container}>
       <header style={style.header}>
         <div style={style.headerWrap}>
-          <h1 style={headingStyles}>{fields.title['en-GB']}</h1>
-          { fields.description && <p style={descriptionStyles}>{fields.description['en-GB']}</p> }
+          <h1 style={headingStyles}>{title}</h1>
+          { description && <p style={descriptionStyles}>{description}</p> }
         </div>
-        { fields.backgroundImage &&
+        { backgroundImage &&
           <div style={style.backgroundImage}>
             <div style={style.backgroundOpacity} />
-            <Item asset element={Image} itemId={fields.backgroundImage['en-GB'].sys.id} />
+            <Item asset element={Image} itemId={backgroundImage} />
           </div>
         }
       </header>
       <ul style={style.images}>
         {
-          fields.images['en-GB'].map(({ sys }) => {
+          images.map((id) => {
             i += 1;
 
             let styles = style.image;
@@ -41,11 +41,11 @@ const Project = ({ fields }) => {
             }
 
             return (
-              <li key={`${i}-${sys.id}`} style={styles}>
+              <li key={`${i}-${id}`} style={styles}>
                 <div style={style.imageWrapper}>
                   <Item
                     element={Image}
-                    itemId={sys.id}
+                    itemId={id}
                     asset
                   />
                 </div>
