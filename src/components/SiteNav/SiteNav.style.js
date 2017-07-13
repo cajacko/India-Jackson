@@ -18,6 +18,13 @@ export default {
     padding: 10,
   },
 
+  navContent: {
+    display: 'flex',
+    flex: 1,
+    alignItems: 'center',
+    position: 'relative',
+  },
+
   logo: {
     width: 200,
   },
@@ -30,6 +37,23 @@ export default {
     margin: 0,
     padding: 0,
     justifyContent: 'flex-end',
+  },
+
+  links: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+    paddingRight: 30,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
 
   iconLink: {
@@ -46,5 +70,9 @@ export default {
     border: 0,
     padding: 0,
     margin: 0,
+  },
+
+  hidden: {
+    opacity: 0,
   },
 };
