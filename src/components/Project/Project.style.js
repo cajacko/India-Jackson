@@ -1,4 +1,5 @@
 import { BLACK, WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
+import { TEXT } from 'constants/text';
 
 export default {
   container: {
@@ -50,6 +51,7 @@ export default {
   },
 
   heading: {
+    ...TEXT,
     color: WHITE,
     margin: 0,
     fontSize: 40,
@@ -64,6 +66,7 @@ export default {
   },
 
   description: {
+    ...TEXT,
     color: WHITE,
     fontSize: 20,
     margin: '30px 0 0 0',
