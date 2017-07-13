@@ -27,8 +27,8 @@ const Image = ({ file, title, className, width, height, fill }) => {
     fillText = '&fit=fill';
   }
 
-  // const url = `${file.url}?w=${imageWidth}&h=${imageHeight}${fillText}&fm=jpg&fl=progressive`;
-  const url = `https://unsplash.it/${imageWidth}/${imageHeight}`;
+  const jpg = '&fm=jpg&fl=progressive';
+  const url = `${file.url}?w=${imageWidth}&h=${imageHeight}${fillText}${jpg}`;
 
   return (
     <img
@@ -42,34 +42,29 @@ const Image = ({ file, title, className, width, height, fill }) => {
   );
 };
 
-// Image.propTypes = {
-//   width: PropTypes.number,
-//   height: PropTypes.number,
-//   fill: PropTypes.bool,
-//   className: PropTypes.string,
-//   fields: PropTypes.shape({
-//     title: PropTypes.shape({
-//       'en-GB': PropTypes.string,
-//     }),
-//     file: PropTypes.shape({
-//       'en-GB': PropTypes.shape({
-//         url: PropTypes.string,
-//         details: PropTypes.shape({
-//           image: PropTypes.shape({
-//             width: PropTypes.number,
-//             height: PropTypes.number,
-//           }),
-//         }),
-//       }),
-//     }),
-//   }).isRequired,
-// };
+Image.propTypes = {
+  file: PropTypes.shape({
+    url: PropTypes.string,
+    details: PropTypes.shape({
+      image: PropTypes.shape({
+        height: PropTypes.number,
+        width: PropTypes.number,
+      }),
+    }),
+  }).isRequired,
+  className: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  fill: PropTypes.bool,
+  title: PropTypes.string,
+};
 
 Image.defaultProps = {
   className: null,
   width: null,
   height: null,
   fill: true,
+  title: 'Content editor has not supplied alt text',
 };
 
 export default Image;
