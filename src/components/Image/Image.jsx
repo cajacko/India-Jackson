@@ -27,8 +27,7 @@ const Image = ({ file, title, className, width, height, fill }) => {
     fillText = '&fit=fill';
   }
 
-  // const url = `${file.url}?w=${imageWidth}&h=${imageHeight}${fillText}&fm=jpg&fl=progressive`;
-  const url = `https://unsplash.it/${imageWidth}/${imageHeight}`;
+  const url = `${file.url}?w=${imageWidth}&h=${imageHeight}${fillText}&fm=jpg&fl=progressive`;
 
   return (
     <img
