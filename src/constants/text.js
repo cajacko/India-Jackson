@@ -1,4 +1,4 @@
-import { TURQOISE, BLACK, TURQOISE_HIGHLIGHT } from 'constants/colours';
+import { TURQOISE, BLACK } from 'constants/colours';
 
 export const TEXT = {
   fontSize: 12,
