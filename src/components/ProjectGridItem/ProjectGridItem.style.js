@@ -1,4 +1,5 @@
 import { VERTICAL_SPACING } from 'components/ProjectGrid/ProjectGrid.style';
+import { LINK } from 'constants/text';
 
 export default {
   container: {
@@ -6,11 +7,19 @@ export default {
     marginBottom: VERTICAL_SPACING,
   },
 
-  image: {
+  link: {
+    textDecoration: 'none',
+  },
 
+  image: {
+    ':hover': {
+      opacity: 0.5,
+    },
   },
 
   title: {
-
+    ...LINK,
+    fontSize: 22,
+    textDecoration: 'underline',
   },
 };

@@ -1,37 +1,26 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Radium from 'radium';
+import Link from 'components/Link/Link';
 import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import style from 'components/ProjectGridItem/ProjectGridItem.style';
 
 const ProjectGridItem = ({ url, featureImage, title }) => (
   <li style={style.container}>
-    <Link to={`/${url}`}>
+    <Link key={`ProjectGridItem-link-${url}`} to={`/${url}`} style={style.link}>
       <div style={style.image}>
-        <Item asset element={Image} itemId={featureImage} width={500} height={400} />
+        <Item element={Image} itemId={featureImage} width={500} height={400} />
       </div>
-      <h2 style={style.title}>{title}</h2>
+      <h2 key={`ProjectGridItem-h2-${url}`} style={style.title}>{title}</h2>
     </Link>
   </li>
 );
 
-// SiteHeader.propTypes = {
-//   fields: PropTypes.shape({
-//     sitetitle: PropTypes.shape({
-//       'en-GB': PropTypes.string,
-//     }),
-//     description: PropTypes.shape({
-//       'en-GB': PropTypes.string,
-//     }),
-//     image: PropTypes.shape({
-//       'en-GB': PropTypes.shape({
-//         sys: PropTypes.shape({
-//           id: PropTypes.string,
-//         }),
-//       }),
-//     }),
-//   }).isRequired,
-// };
+ProjectGridItem.propTypes = {
+  url: PropTypes.string.isRequired,
+  featureImage: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
-export default ProjectGridItem;
+export default Radium(ProjectGridItem);
