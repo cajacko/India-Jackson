@@ -32,12 +32,10 @@ class SiteNav extends Component {
   render() {
     let menuIcon = this.props.menuIcon;
     let iconLinksStyle = style.iconLinks;
-    let logoStyle = style.logo;
 
     if (this.state.showSubMenu) {
       menuIcon = this.props.menuCloseIcon;
       iconLinksStyle = { ...iconLinksStyle, ...style.hidden };
-      logoStyle = { ...logoStyle, ...style.hidden };
     }
 
     let buttonStyle = style.menuButton;
@@ -51,51 +49,54 @@ class SiteNav extends Component {
     return (
       <nav style={style.container}>
         <div style={style.wrapper}>
-          <div style={style.navContent}>
-            <Link style={logoStyle} to="/">
-              <Item
-                element={Image}
-                itemId={this.props.logo}
-                height={70}
-                width={200}
-              />
-            </Link>
-            <ul style={iconLinksStyle}>
-              {
-                this.props.iconLinks.map(id => (
-                  <li style={style.iconLink} key={id}>
-                    <Item
-                      element={IconLink}
-                      itemId={id}
-                    />
-                  </li>
-                ))
-              }
-            </ul>
-            { this.state.showSubMenu &&
-              <ul style={style.links}>
+          <Link style={style.logo} to="/">
+            <Item
+              element={Image}
+              itemId={this.props.logo}
+              height={100}
+              width={350}
+            />
+          </Link>
+
+          <div style={style.navItems}>
+            <div style={style.navContent}>
+              <ul style={iconLinksStyle}>
                 {
-                  this.props.links.map(id => (
-                    <li style={style.link} key={id}>
+                  this.props.iconLinks.map(id => (
+                    <li style={style.iconLink} key={id}>
                       <Item
-                        element={SiteNavTextLink}
+                        element={IconLink}
                         itemId={id}
                       />
                     </li>
                   ))
                 }
               </ul>
-            }
-          </div>
+              { this.state.showSubMenu &&
+                <ul style={style.links}>
+                  {
+                    this.props.links.map(id => (
+                      <li style={style.link} key={id}>
+                        <Item
+                          element={SiteNavTextLink}
+                          itemId={id}
+                        />
+                      </li>
+                    ))
+                  }
+                </ul>
+              }
+            </div>
 
-          <button
-            style={buttonStyle}
-            onClick={this.onClick}
-            onMouseOver={() => this.hover(true)}
-            onMouseOut={() => this.hover(false)}
-          >
-            <Item element={Icon} itemId={menuIcon} colour={buttonColour} />
-          </button>
+            <button
+              style={buttonStyle}
+              onClick={this.onClick}
+              onMouseOver={() => this.hover(true)}
+              onMouseOut={() => this.hover(false)}
+            >
+              <Item element={Icon} itemId={menuIcon} colour={buttonColour} />
+            </button>
+          </div>
         </div>
       </nav>
     );
