@@ -38,6 +38,7 @@ export default {
     ...TEXT,
     margin: 0,
     fontSize: 40,
+    fontWeight: 600,
   },
 
   description: {

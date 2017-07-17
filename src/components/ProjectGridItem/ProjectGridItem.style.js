@@ -21,5 +21,6 @@ export default {
     ...LINK,
     fontSize: 22,
     textAlign: 'center',
+    fontWeight: 400,
   },
 };
