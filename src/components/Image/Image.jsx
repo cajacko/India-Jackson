@@ -10,6 +10,7 @@ const Image = ({
   height,
   fill,
   stretchWidth,
+  contentType,
 }) => {
   let imageHeight = file.details.image.height;
   let imageWidth = file.details.image.width;
@@ -38,7 +39,12 @@ const Image = ({
     changeSize = false;
   }
 
-  const jpg = 'fm=jpg&fl=progressive';
+  let jpg = '';
+
+  if (contentType === 'image/jpeg') {
+    jpg = 'fm=jpg&fl=progressive';
+  }
+
   let url;
 
   if (changeSize) {

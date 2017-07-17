@@ -53,7 +53,6 @@ class SiteNav extends Component {
             <Item
               element={Image}
               itemId={this.props.logo}
-              height={100}
               width={350}
             />
           </Link>

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import equal from 'deep-equal';
 import componentMap from 'constants/typeComponentMap';
-import getItemContentTypeId from 'helpers/getItemContentTypeId';
 import { getItemProps, getProps, getPassedProps } from 'helpers/getProps';
 
 class Item extends Component {

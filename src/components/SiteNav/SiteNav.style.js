@@ -1,6 +1,6 @@
 import { GREY_LIGHT, GREY_LIGHT_HIGHLIGHT, BLACK, TURQOISE } from 'constants/colours';
 
-const iconSize = 30;
+const iconSize = 25;
 
 export default {
   container: {
