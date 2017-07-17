@@ -21,6 +21,8 @@ export default {
   textWrapper: {
     flex: 2,
     paddingLeft: 40,
+    display: 'flex',
+    alignItems: 'center',
   },
 
   paragraph: {

@@ -19,48 +19,24 @@ class Project extends Component {
   render() {
     let i = 1;
 
-    let headingStyles = style.heading;
-    let descriptionStyles = style.description;
-
-    if (!this.props.backgroundImage) {
-      headingStyles = { ...headingStyles, ...style.headingAlt };
-      descriptionStyles = { ...descriptionStyles, ...style.descriptionAlt };
-    }
-
     return (
       <WindowResize onWindowResize={this.onWindowResize}>
         <section style={style.container}>
           <header style={style.header}>
             <div style={style.headerWrap}>
-              <h1 style={headingStyles}>{this.props.title}</h1>
+              <h1 style={style.heading}>{this.props.title}</h1>
               { this.props.description &&
-                <p style={descriptionStyles}>{this.props.description}</p>
+                <p style={style.description}>{this.props.description}</p>
               }
             </div>
-            { this.props.backgroundImage &&
-              <div style={style.backgroundImage}>
-                <div style={style.backgroundOpacity} />
-                <Item
-                  element={Image}
-                  itemId={this.props.backgroundImage}
-                  stretchWidth={this.state.width}
-                />
-              </div>
-            }
           </header>
           <ul style={style.images}>
             {
               this.props.images.map((id) => {
                 i += 1;
 
-                let styles = style.image;
-
-                if (i % 2) {
-                  styles = { ...styles, ...style.imageAlt };
-                }
-
                 return (
-                  <li key={`${i}-${id}`} style={styles}>
+                  <li key={`${i}-${id}`} style={style.image}>
                     <div style={style.imageWrapper}>
                       <Item
                         element={Image}

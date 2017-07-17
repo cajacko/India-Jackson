@@ -1,16 +1,18 @@
-import { BLACK, WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
+import { WHITE, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
 import { TEXT } from 'constants/text';
+
+const imageWidth = 600;
 
 export default {
   container: {
-    backgroundColor: GREY_LIGHT,
+    backgroundColor: WHITE,
     borderBottomStyle: 'solid',
     borderBottomWidth: 1,
     borderBottomColor: GREY_LIGHT_HIGHLIGHT,
   },
 
   imageWrapper: {
-    maxWidth: 600,
+    maxWidth: imageWidth,
     margin: '0 auto',
   },
 
@@ -27,47 +29,19 @@ export default {
     alignItems: 'center',
     flexDirection: 'column',
     padding: '60px 0',
-  },
-
-  backgroundImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  backgroundOpacity: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'black',
-    opacity: 0.75,
+    maxWidth: imageWidth,
+    margin: '0 auto',
+    textAlign: 'center',
   },
 
   heading: {
     ...TEXT,
-    color: WHITE,
     margin: 0,
     fontSize: 40,
   },
 
-  headingAlt: {
-    color: BLACK,
-  },
-
-  descriptionAlt: {
-    color: BLACK,
-  },
-
   description: {
     ...TEXT,
-    color: WHITE,
     fontSize: 20,
     margin: '30px 0 0 0',
   },
@@ -79,10 +53,7 @@ export default {
   },
 
   image: {
-    backgroundColor: GREY_LIGHT,
-  },
-
-  imageAlt: {
     backgroundColor: WHITE,
+    marginBottom: 20,
   },
 };
