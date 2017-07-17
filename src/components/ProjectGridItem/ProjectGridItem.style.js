@@ -20,6 +20,6 @@ export default {
   title: {
     ...LINK,
     fontSize: 22,
-    textDecoration: 'underline',
+    textAlign: 'center',
   },
 };

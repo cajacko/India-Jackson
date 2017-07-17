@@ -1,5 +1,6 @@
 import { WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
 import { TEXT } from 'constants/text';
+import { SITE_WIDTH } from 'constants/spacing';
 
 export default {
   container: {
@@ -7,7 +8,7 @@ export default {
   },
 
   wrapper: {
-    maxWidth: 800,
+    maxWidth: SITE_WIDTH,
     margin: '0 auto',
     display: 'flex',
     padding: '50px 10px',

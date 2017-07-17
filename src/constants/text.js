@@ -11,9 +11,10 @@ export const TEXT = {
 
 export const LINK = {
   ...TEXT,
+  color: TURQOISE,
   cursor: 'pointer',
   ':hover': {
     textDecoration: 'underline',
-    color: TURQOISE,
+    color: BLACK,
   },
 };

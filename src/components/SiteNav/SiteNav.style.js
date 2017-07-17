@@ -1,4 +1,5 @@
 import { GREY_LIGHT, GREY_LIGHT_HIGHLIGHT, BLACK, TURQOISE } from 'constants/colours';
+import { SITE_WIDTH } from 'constants/spacing';
 
 const iconSize = 25;
 
@@ -19,7 +20,7 @@ export default {
   },
 
   wrapper: {
-    maxWidth: 800,
+    maxWidth: SITE_WIDTH,
     margin: '0 auto',
     display: 'flex',
     alignItems: 'center',

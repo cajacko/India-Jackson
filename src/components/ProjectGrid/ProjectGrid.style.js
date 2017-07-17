@@ -1,4 +1,5 @@
 import { GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
+import { SITE_WIDTH } from 'constants/spacing';
 
 export const VERTICAL_SPACING = 70;
 
@@ -12,7 +13,7 @@ export default {
   },
 
   wrapper: {
-    maxWidth: 800,
+    maxWidth: SITE_WIDTH,
     margin: '0 auto',
     display: 'flex',
     padding: `${VERTICAL_SPACING}px 10px 0 10px`,

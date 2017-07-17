@@ -10,7 +10,7 @@ const ProjectGridItem = ({ url, featureImage, title }) => (
   <li style={style.container}>
     <Link key={`ProjectGridItem-link-${url}`} to={`/${url}`} style={style.link}>
       <div style={style.image}>
-        <Item element={Image} itemId={featureImage} width={500} height={400} />
+        <Item element={Image} itemId={featureImage} width={500} height={500} />
       </div>
       <h2 key={`ProjectGridItem-h2-${url}`} style={style.title}>{title}</h2>
     </Link>
