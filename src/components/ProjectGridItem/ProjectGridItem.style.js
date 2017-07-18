@@ -16,6 +16,7 @@ export default {
 
   link: {
     textDecoration: 'none',
+    cursor: 'pointer',
   },
 
   image: {
