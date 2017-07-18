@@ -34,7 +34,13 @@ class IconLink extends Component {
         style={iconLinkStyle}
       >
         <div style={style.hoverFix} />
-        <Item element={Icon} itemId={this.props.icon} colour={colour} />
+        <Item
+          element={Icon}
+          itemId={this.props.icon}
+          colour={colour}
+          height={this.props.height}
+          width={this.props.width}
+        />
       </a>
     );
   }
@@ -43,6 +49,8 @@ class IconLink extends Component {
 IconLink.propTypes = {
   url: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 export default IconLink;

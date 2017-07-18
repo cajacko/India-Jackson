@@ -1,7 +1,7 @@
 import { WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT, BLACK, TURQOISE } from 'constants/colours';
 import { SITE_WIDTH } from 'constants/spacing';
 
-const iconSize = 25;
+export const ICON_SIZE = 25;
 
 export default {
   container: {
@@ -50,7 +50,7 @@ export default {
     display: 'flex',
     flexDirection: 'row',
     listStyle: 'none',
-    margin: `0 0 0 ${iconSize}px`,
+    margin: `0 0 0 ${ICON_SIZE}px`,
     padding: 0,
     justifyContent: 'center',
   },
@@ -71,14 +71,14 @@ export default {
   },
 
   iconLink: {
-    width: iconSize,
-    height: iconSize,
+    width: ICON_SIZE,
+    height: ICON_SIZE,
     margin: '0 20px',
   },
 
   menuButton: {
-    width: iconSize,
-    height: iconSize,
+    width: ICON_SIZE,
+    height: ICON_SIZE,
     appearance: 'none',
     background: 'none',
     border: 0,

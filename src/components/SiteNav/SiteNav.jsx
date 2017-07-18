@@ -7,7 +7,7 @@ import Image from 'components/Image/Image';
 import Icon from 'components/Icon/Icon';
 import IconLink from 'components/IconLink/IconLink';
 import SiteNavTextLink from 'containers/SiteNavTextLink/SiteNavTextLink';
-import style from 'components/SiteNav/SiteNav.style';
+import style, { ICON_SIZE } from 'components/SiteNav/SiteNav.style';
 
 class SiteNav extends Component {
   constructor(props) {
@@ -58,6 +58,8 @@ class SiteNav extends Component {
                       <Item
                         element={IconLink}
                         itemId={id}
+                        height={ICON_SIZE}
+                        width={ICON_SIZE}
                       />
                     </li>
                   ))
@@ -72,7 +74,13 @@ class SiteNav extends Component {
               onMouseOut={() => this.hover(false)}
             >
               <div style={style.hoverFix} />
-              <Item element={Icon} itemId={menuIcon} colour={buttonColour} />
+              <Item
+                element={Icon}
+                itemId={menuIcon}
+                colour={buttonColour}
+                height={ICON_SIZE}
+                width={ICON_SIZE}
+              />
             </button>
           </div>
         </div>
