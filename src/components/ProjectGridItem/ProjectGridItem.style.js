@@ -5,6 +5,13 @@ export default {
   container: {
     width: 'calc(33.333% - 20px)',
     marginBottom: VERTICAL_SPACING,
+    '@media (max-width: 740px)': {
+      width: 'calc(50% - 20px)',
+    },
+
+    '@media (max-width: 450px)': {
+      width: '100%',
+    },
   },
 
   link: {

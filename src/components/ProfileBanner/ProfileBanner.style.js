@@ -1,6 +1,8 @@
 import { WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT } from 'constants/colours';
 import { TEXT } from 'constants/text';
 
+const mediaQuery = '@media (max-width: 450px)';
+
 export default {
   container: {
     backgroundColor: WHITE,
@@ -11,6 +13,10 @@ export default {
     margin: '0 auto',
     display: 'flex',
     padding: '50px 10px',
+    [mediaQuery]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
   },
 
   image: {
@@ -22,6 +28,10 @@ export default {
     paddingLeft: 40,
     display: 'flex',
     alignItems: 'center',
+    [mediaQuery]: {
+      paddingLeft: 0,
+      marginTop: 40,
+    },
   },
 
   paragraph: {

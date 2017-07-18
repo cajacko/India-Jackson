@@ -18,6 +18,19 @@ class Project extends Component {
 
   render() {
     let i = 1;
+    const descriptionStyle = style.description;
+
+    switch (this.props.descriptionAlignment) {
+      case 'Left':
+        descriptionStyle.textAlign = 'left';
+        break;
+      case 'Right':
+        descriptionStyle.textAlign = 'right';
+        break;
+      default:
+        descriptionStyle.textAlign = 'center';
+        break;
+    }
 
     return (
       <WindowResize onWindowResize={this.onWindowResize}>
@@ -26,7 +39,7 @@ class Project extends Component {
             <div style={style.headerWrap}>
               <h1 style={style.heading}>{this.props.title}</h1>
               { this.props.description &&
-                <p style={style.description}>{this.props.description}</p>
+                <p style={descriptionStyle}>{this.props.description}</p>
               }
             </div>
           </header>
@@ -57,14 +70,14 @@ class Project extends Component {
 
 Project.propTypes = {
   description: PropTypes.string,
+  descriptionAlignment: PropTypes.string,
   title: PropTypes.string.isRequired,
-  backgroundImage: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 Project.defaultProps = {
   description: null,
-  backgroundImage: null,
+  descriptionAlignment: null,
 };
 
 export default Project;

@@ -45,6 +45,9 @@ export default {
     ...TEXT,
     fontSize: 20,
     margin: '30px 0 0 0',
+    width: '100%',
+    padding: '0 10px',
+    boxSizing: 'border-box',
   },
 
   images: {
