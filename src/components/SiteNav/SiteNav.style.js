@@ -1,4 +1,4 @@
-import { GREY_LIGHT, GREY_LIGHT_HIGHLIGHT, BLACK, TURQOISE } from 'constants/colours';
+import { WHITE, GREY_LIGHT, GREY_LIGHT_HIGHLIGHT, BLACK, TURQOISE } from 'constants/colours';
 import { SITE_WIDTH } from 'constants/spacing';
 
 const iconSize = 25;
@@ -56,19 +56,18 @@ export default {
   },
 
   links: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'row',
     listStyle: 'none',
     margin: 0,
-    padding: '0 30px 0 0',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    padding: 0,
     position: 'absolute',
-    top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
+    backgroundColor: WHITE,
+    borderColor: GREY_LIGHT_HIGHLIGHT,
+    borderTopStyle: 'solid',
+    borderBottomStyle: 'solid',
+    borderWidth: 2,
+    zIndex: 2,
   },
 
   iconLink: {

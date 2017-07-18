@@ -13,14 +13,8 @@ class SiteNav extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { showSubMenu: false, hover: false };
-
-    this.onClick = this.onClick.bind(this);
+    this.state = { hover: false };
     this.hover = this.hover.bind(this);
-  }
-
-  onClick() {
-    this.setState({ showSubMenu: !this.state.showSubMenu });
   }
 
   hover(hover) {
@@ -31,11 +25,9 @@ class SiteNav extends Component {
 
   render() {
     let menuIcon = this.props.menuIcon;
-    let iconLinksStyle = style.iconLinks;
 
-    if (this.state.showSubMenu) {
+    if (this.props.showSubMenu) {
       menuIcon = this.props.menuCloseIcon;
-      iconLinksStyle = { ...iconLinksStyle, ...style.hidden };
     }
 
     let buttonStyle = style.menuButton;
@@ -59,7 +51,7 @@ class SiteNav extends Component {
 
           <div style={style.navItems}>
             <div style={style.navContent}>
-              <ul style={iconLinksStyle}>
+              <ul style={style.iconLinks}>
                 {
                   this.props.iconLinks.map(id => (
                     <li style={style.iconLink} key={id}>
@@ -71,25 +63,11 @@ class SiteNav extends Component {
                   ))
                 }
               </ul>
-              { this.state.showSubMenu &&
-                <ul style={style.links}>
-                  {
-                    this.props.links.map(id => (
-                      <li style={style.link} key={id}>
-                        <Item
-                          element={SiteNavTextLink}
-                          itemId={id}
-                        />
-                      </li>
-                    ))
-                  }
-                </ul>
-              }
             </div>
 
             <button
               style={buttonStyle}
-              onClick={this.onClick}
+              onClick={this.props.menuClick}
               onMouseOver={() => this.hover(true)}
               onMouseOut={() => this.hover(false)}
             >
@@ -98,12 +76,28 @@ class SiteNav extends Component {
             </button>
           </div>
         </div>
+        { this.props.showSubMenu &&
+          <ul style={style.links}>
+            {
+              this.props.links.map(id => (
+                <li style={style.link} key={id}>
+                  <Item
+                    element={SiteNavTextLink}
+                    itemId={id}
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        }
       </nav>
     );
   }
 }
 
 SiteNav.propTypes = {
+  menuClick: PropTypes.func.isRequired,
+  showSubMenu: PropTypes.bool.isRequired,
   menuIcon: PropTypes.string.isRequired,
   menuCloseIcon: PropTypes.string.isRequired,
   logo: PropTypes.string.isRequired,
