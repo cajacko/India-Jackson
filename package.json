@@ -4,20 +4,15 @@
   "description": "Website for India Jackson",
   "main": "index.js",
   "scripts": {
+    "start": "multi \"npm run dev:webpack\" \"npm run dev:server\" && npm run dev:serve",
+    "deploy": "npm run dev:build && npm run dev:pages && firebase deploy",
+    "login": "firebase logout && firebase login",
     "test": "eslint src",
-    "login": "firebase login",
-    "logout": "firebase logout",
-    "init": "firebase init",
-    "deploy": "npm run build && npm run pages && firebase deploy",
-    "serve": "firebase serve",
+    "dev:serve": "firebase serve",
     "dev:server": "babel-node ./devServer/index.js",
     "dev:webpack": "npm run pages && webpack-dev-server",
-    "dev:webpackFiles": "npm run pages:dev && webpack --progress --colors --watch",
-    "start": "multi \"npm run dev:webpack\" \"npm run dev:server\"",
-    "build": "webpack --progress --colors --env.production",
-    "pages": "babel-node ./scripts/buildPages.jsx",
-    "pages:dev": "babel-node ./scripts/buildPagesDev.js",
-    "sitemap": "babel-node ./scripts/buildSitemap.js"
+    "dev:build": "webpack --progress --colors --env.production",
+    "dev:pages": "babel-node ./scripts/buildPages.jsx"
   },
   "repository": {
     "type": "git",
