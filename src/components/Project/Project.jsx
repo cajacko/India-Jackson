@@ -4,6 +4,7 @@ import Item from 'containers/Item/Item';
 import Image from 'components/Image/Image';
 import style from 'components/Project/Project.style';
 import WindowResize from 'components/WindowResize/WindowResize';
+import MultiLineText from 'components/MultiLineText/MultiLineText';
 
 class Project extends Component {
   constructor(props) {
@@ -39,7 +40,10 @@ class Project extends Component {
             <div style={style.headerWrap}>
               <h1 style={style.heading}>{this.props.title}</h1>
               { this.props.description &&
-                <p style={descriptionStyle}>{this.props.description}</p>
+                <MultiLineText
+                  style={descriptionStyle}
+                  text={this.props.description}
+                />
               }
             </div>
           </header>

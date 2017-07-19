@@ -8,8 +8,9 @@ export default {
     backgroundColor: WHITE,
   },
 
+  wrapperMaxWidth: 600,
+
   wrapper: {
-    maxWidth: 600,
     margin: '0 auto',
     display: 'flex',
     padding: '50px 10px',
@@ -21,6 +22,8 @@ export default {
 
   image: {
     flex: 1,
+    display: 'flex',
+    alignItems: 'center',
   },
 
   textWrapper: {
@@ -37,6 +40,10 @@ export default {
   paragraph: {
     ...TEXT,
     fontSize: 20,
+    margin: '0 0 14px 0',
+  },
+
+  paragraphLast: {
     margin: 0,
   },
 

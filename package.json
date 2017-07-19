@@ -10,7 +10,7 @@
     "test": "eslint src",
     "dev:serve": "firebase serve",
     "dev:server": "babel-node ./devServer/index.js",
-    "dev:webpack": "npm run pages && webpack-dev-server",
+    "dev:webpack": "npm run dev:pages && webpack-dev-server",
     "dev:build": "webpack --progress --colors --env.production",
     "dev:pages": "babel-node ./scripts/buildPages.jsx"
   },

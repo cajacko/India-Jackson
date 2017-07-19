@@ -4,9 +4,16 @@ import Radium from 'radium';
 import Item from 'containers/Item/Item';
 import { Link } from 'components/Link/Link';
 import Image from 'components/Image/Image';
+import MultiLineText from 'components/MultiLineText/MultiLineText';
 import style from 'components/ProfileBanner/ProfileBanner.style';
 
-const ProfileBanner = ({ image, description, buttonLink, buttonText }) => {
+const ProfileBanner = ({
+  image,
+  description,
+  buttonLink,
+  buttonText,
+  maxWidth,
+}) => {
   let button;
 
   if (buttonLink && buttonText) {
@@ -22,12 +29,16 @@ const ProfileBanner = ({ image, description, buttonLink, buttonText }) => {
 
   return (
     <section style={style.container}>
-      <div style={style.wrapper}>
+      <div style={{ ...style.wrapper, maxWidth }}>
         <div style={style.image}>
           <Item asset element={Image} itemId={image} width={200} height={200} />
         </div>
         <div style={style.textWrapper}>
-          <p style={style.paragraph}>{description}</p>
+          <MultiLineText
+            style={style.paragraph}
+            text={description}
+            lastStyle={style.paragraphLast}
+          />
           {button}
         </div>
       </div>
@@ -40,11 +51,13 @@ ProfileBanner.propTypes = {
   description: PropTypes.string.isRequired,
   buttonLink: PropTypes.string,
   buttonText: PropTypes.string,
+  maxWidth: PropTypes.number,
 };
 
 ProfileBanner.defaultProps = {
   buttonLink: null,
   buttonText: 'Click me',
+  maxWidth: style.wrapperMaxWidth,
 };
 
 export default Radium(ProfileBanner);
